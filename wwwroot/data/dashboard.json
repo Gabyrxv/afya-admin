@@ -1,0 +1,54 @@
+{
+  "periodos": [
+    "Últimos 7 dias",
+    "Últimos 30 dias",
+    "Últimos 90 dias",
+    "Personalizado"
+  ],
+  "kpis": [
+    {
+      "titulo": "Receita",
+      "valor": "R$ 248.500",
+      "variacao": "+12,5%",
+      "positivo": true,
+      "icone": "AttachMoney",
+      "cor": "Success",
+      "corHex": "#10B981",
+      "tendencia": [10, 14, 12, 18, 16, 21, 19, 24, 23, 29]
+    },
+    {
+      "titulo": "Usuários Ativos",
+      "valor": "12.842",
+      "variacao": "+8,2%",
+      "positivo": true,
+      "icone": "Groups",
+      "cor": "Secondary",
+      "corHex": "#7C3AED",
+      "tendencia": [8, 11, 9, 14, 12, 17, 15, 21, 18, 16]
+    },
+    {
+      "titulo": "Novos Clientes",
+      "valor": "384",
+      "variacao": "+16,6%",
+      "positivo": true,
+      "icone": "PeopleAlt",
+      "cor": "Info",
+      "corHex": "#3B82F6",
+      "tendencia": [6, 9, 8, 12, 14, 13, 17, 16, 19, 18]
+    },
+    {
+      "titulo": "Projetos Ativos",
+      "valor": "27",
+      "variacao": "-2,4%",
+      "positivo": false,
+      "icone": "Folder",
+      "cor": "Warning",
+      "corHex": "#F97316",
+      "tendencia": [12, 15, 19, 16, 18, 15, 17, 14, 15, 12]
+    }
+  ],
+  "meses": ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set"],
+  "receitaMensal": [70000, 117000, 112000, 135000, 165000, 168000, 182000, 212000, 248500],
+  "metaMensal": [25000, 45000, 52000, 68000, 95000, 97000, 118000, 152000, 185000],
+  "totalClientes": 1842
+}

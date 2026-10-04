@@ -1,6 +1,8 @@
 @page "/"
+@inject IDashboardService DashboardService
 
 <PageTitle>Dashboard | Afya Pedagógico</PageTitle>
+
 
 <CabecalhoPagina
     Titulo="Dashboard"
@@ -9,7 +11,8 @@
     <Acoes>
         <SeletorPeriodo
             Opcoes="DashboardData.Periodos"
-            @bind-Valor="_periodo" />
+            Valor="@_periodo"
+            ValorChanged="PeriodoAlterado" />
 
         <MudButton
             Variant="Variant.Filled"
@@ -25,8 +28,8 @@
 </CabecalhoPagina>
 
 <MudGrid Spacing="3">
-
-    @foreach (var kpi in DashboardData.Kpis)
+        
+  @foreach (var kpi in KpisSelecionados)
     {
         <MudItem xs="12" sm="6" lg="3">
             <KpiCard Kpi="kpi" />
@@ -61,5 +64,76 @@
 </MudGrid>
 
 @code {
+    private class DashboardJson
+    {
+        public List<KpiJson> Kpis { get; set; } = new();
+        public string[] Periodos { get; set; } = Array.Empty<string>();
+        public string[] Meses { get; set; } = Array.Empty<string>();
+        public double[] ReceitaMensal { get; set; } = Array.Empty<double>();
+        public double[] MetaMensal { get; set; } = Array.Empty<double>();
+        public int TotalClientes { get; set; }
+    }
+
+    private class KpiJson
+    {
+        public string Titulo { get; set; } = "";
+        public string Valor { get; set; } = "";
+        public string Variacao { get; set; } = "";
+        public bool Positivo { get; set; }
+        public string Icone { get; set; } = "";
+        public string Cor { get; set; } = "";
+        public string CorHex { get; set; } = "";
+        public double[] Tendencia { get; set; } = Array.Empty<double>();
+    }
+
     private string _periodo = "Últimos 30 dias";
+    private List<Kpi> KpisSelecionados = new();
+    private bool _carregando = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var dados = await DashboardService.ObterDadosAsync();
+
+            if (dados is not null)
+            {
+                KpisSelecionados = dados.Kpis.Select(k => new Kpi(
+                    k.Titulo,
+                    k.Valor,
+                    k.Variacao,
+                    k.Positivo,
+                    ObterIcone(k.Icone),
+                    Color.Primary,
+                    k.CorHex,
+                    k.Tendencia
+                )).ToList();
+            }
+        }
+        finally
+        {
+            _carregando = false;
+        }
+    }
+
+    private string ObterIcone(string icone)
+    {
+        return icone switch
+        {
+            "AttachMoney" => Icons.Material.Filled.AttachMoney,
+            "Groups" => Icons.Material.Filled.Groups,
+            "PeopleAlt" => Icons.Material.Filled.PeopleAlt,
+            "Folder" => Icons.Material.Filled.Folder,
+            _ => Icons.Material.Filled.Info
+        };
+    }
+
+    private void PeriodoAlterado(string periodo)
+    {
+        _periodo = periodo;
+
+        KpisSelecionados = DashboardData.KpisPorPeriodo.TryGetValue(_periodo, out var kpis)
+            ? kpis
+            : DashboardData.Kpis;
+    }
 }

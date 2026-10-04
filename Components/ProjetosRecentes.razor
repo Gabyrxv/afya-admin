@@ -16,6 +16,7 @@
 
         <MudTable
             Items="Projetos"
+            Filter="FiltrarProjeto"
             Dense="true"
             Hover="true"
             Elevation="0"
@@ -144,4 +145,17 @@
     [Parameter, EditorRequired]
     public IReadOnlyList<ProjetoRecente> Projetos { get; set; } =
         Array.Empty<ProjetoRecente>();
+
+    [Parameter]
+    public string? Busca { get; set; }
+
+    private bool FiltrarProjeto(ProjetoRecente projeto)
+    {
+        if (string.IsNullOrWhiteSpace(Busca))
+            return true;
+
+        return projeto.Nome.Contains(Busca, StringComparison.OrdinalIgnoreCase)
+            || projeto.Cliente.Contains(Busca, StringComparison.OrdinalIgnoreCase)
+            || projeto.Responsavel.Contains(Busca, StringComparison.OrdinalIgnoreCase);
+    }
 }

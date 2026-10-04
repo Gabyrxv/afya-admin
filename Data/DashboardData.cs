@@ -11,7 +11,36 @@ string Status, Color StatusCor, int Progresso, string Prazo);
 public static class DashboardData
 {
     public static readonly string[] Periodos = { "Últimos 7 dias", "Últimos 30 dias", "Últimos 90 dias", "Personalizado" };
+        public static readonly Dictionary<string, List<Kpi>> KpisPorPeriodo = new()
+        {
+        ["Últimos 7 dias"] = new()
+        {
+                new("Receita", "R$ 82.500", "+5,2%", true, Icons.Material.Filled.AttachMoney, Color.Success, "#10B981",
+                new double[] { 10, 12, 14, 13, 17, 19, 21, 24 }),
+                new("Usuários Ativos", "9.842", "+4,5%", true, Icons.Material.Filled.Groups, Color.Secondary, "#7C3AED",
+                new double[] { 8, 10, 11, 13, 15, 16, 18, 20 }),
+                new("Novos Clientes", "126", "+7,1%", true, Icons.Material.Filled.PeopleAlt, Color.Info, "#3B82F6",
+                new double[] { 6, 8, 9, 11, 12, 14, 15, 17 }),
+                new("Projetos Ativos", "24", "-1,2%", false, Icons.Material.Filled.Folder, Color.Warning, "#F97316",
+                new double[] { 15, 16, 18, 17, 19, 18, 20, 21 }),
+        },
 
+        ["Últimos 30 dias"] = Kpis,
+
+        ["Últimos 90 dias"] = new()
+        {
+                new("Receita", "R$ 248.500", "+12,5%", true, Icons.Material.Filled.AttachMoney, Color.Success, "#10B981",
+                new double[] { 10, 14, 12, 18, 16, 21, 19, 24, 23, 29 }),
+                new("Usuários Ativos", "12.842", "+8,2%", true, Icons.Material.Filled.Groups, Color.Secondary, "#7C3AED",
+                new double[] { 8, 11, 9, 14, 12, 17, 15, 21, 18, 16 }),
+                new("Novos Clientes", "384", "+16,6%", true, Icons.Material.Filled.PeopleAlt, Color.Info, "#3B82F6",
+                new double[] { 6, 9, 8, 12, 14, 13, 17, 16, 19, 18 }),
+                new("Projetos Ativos", "27", "-2,4%", false, Icons.Material.Filled.Folder, Color.Warning, "#F97316",
+                new double[] { 12, 15, 19, 16, 18, 15, 17, 14, 15, 12 }),
+        },
+
+        ["Personalizado"] = Kpis
+        };
     public static readonly List<Kpi> Kpis = new()
     {
             new("Receita", "R$ 248.500", "+12,5%", true, Icons.Material.Filled.AttachMoney, Color.Success, "#10B981",
@@ -31,7 +60,7 @@ public static class DashboardData
    
     public static readonly List<SegmentoCliente> SegmentosClientes = new()
     {
-            new("Empresas", 42, Color.Primary, "#2563EB"),
+            new("Empresas", 42, Color.Primary, "#16A34A"),
             new("Business", 31, Color.Secondary, "#7C3AED"),
             new("Startup", 18, Color.Success, "#10B981"),
             new("Outros", 9, Color.Warning, "#F97316"),
