@@ -64,9 +64,11 @@ O print do DevTools mostra a inspeção do card de **Receita** no Dashboard da a
 * **Classes aplicadas:** `mud-paper`, `mud-elevation-1` e `pa-4`.
 
 
-### Estrutura do projeto
+## Estrutura do projeto
 
+```text
 afya-admin/
+│
 ├── Components/
 │   ├── AtividadesRecentes.razor
 │   ├── CabecalhoPagina.razor
@@ -99,13 +101,8 @@ afya-admin/
 │       ├── tema-claro.png
 │       ├── tema-escuro.png
 │       ├── mobile.png
-│       └── devtools.png
-│
-├── App.razor
-├── Program.cs
-└── README.md
+│       └
 ```
-
 
 Organização das pastas
 
