@@ -37,7 +37,7 @@ Passo a passo para outra pessoa clonar e rodar o projeto:
 Pré-requisitos: É necessário ter o .NET 10 SDK instalado.
 
 ```bash
-git clone https://github.com/seu-usuario/afya-admin.git
+git clone https://github.com/Gabyrxv/afya-admin.gitgit 
 cd afya-admin
 dotnet watch
 ```
