@@ -64,41 +64,48 @@ O print do DevTools mostra a inspeção do card de **Receita** no Dashboard da a
 * **Classes aplicadas:** `mud-paper`, `mud-elevation-1` e `pa-4`.
 
 
-## Estrutura do projeto
+### Estrutura do projeto
 
-Mostre a árvore de pastas e arquivos e explique em uma linha o papel de cada pasta (`Components`, `Data`, `Layout`, `Pages`, `wwwroot`).
-afya-admin/ 
-│ ├── Components/ 
-│   ├── AtividadesRecentes.razor 
-│   ├── CabecalhoPagina.razor 
-│   ├── GraficoDistribuicaoClientes.razor 
-│   ├── GraficoReceita.razor 
-│   ├── KpiCard.razor 
-│   ├── PerformanceProjetos.razor 
-│   ├── ProjetosRecentes.razor 
-│   └── SeletorPeriodo.razor 
-│ ├── Data/ 
-│   ├── DashboardData.cs 
-│   ├── DashboardDataModel.cs 
-│   ├── DashboardService.cs 
-│   └── IDashboardService.cs 
-│ ├── Layout/ 
-    │ └── MainLayout.razor 
-│ ├── Pages/ 
-│    ├── Clientes.razor 
-│    └── Dashboard.razor 
-│ ├── wwwroot/ 
-│   └── data/ 
-│   └── dashboard.json 
-│ ├── docs/ 
-│   └── prints/ 
-│       ├── tema-claro.png 
-│       ├── tema-escuro.png 
-│       ├── mobile.png 
-│       └── devtools.png 
-├── App.razor 
-├── Program.cs 
+afya-admin/
+├── Components/
+│   ├── AtividadesRecentes.razor
+│   ├── CabecalhoPagina.razor
+│   ├── GraficoDistribuicaoClientes.razor
+│   ├── GraficoReceita.razor
+│   ├── KpiCard.razor
+│   ├── PerformanceProjetos.razor
+│   ├── ProjetosRecentes.razor
+│   └── SeletorPeriodo.razor
+│
+├── Data/
+│   ├── DashboardData.cs
+│   ├── DashboardDataModel.cs
+│   ├── DashboardService.cs
+│   └── IDashboardService.cs
+│
+├── Layout/
+│   └── MainLayout.razor
+│
+├── Pages/
+│   ├── Clientes.razor
+│   └── Dashboard.razor
+│
+├── wwwroot/
+│   └── data/
+│       └── dashboard.json
+│
+├── docs/
+│   └── prints/
+│       ├── tema-claro.png
+│       ├── tema-escuro.png
+│       ├── mobile.png
+│       └── devtools.png
+│
+├── App.razor
+├── Program.cs
 └── README.md
+```
+
 
 Organização das pastas
 
